@@ -1,0 +1,31 @@
+{
+  "name": "arduino-node-red-remote",
+  "version": "1.0.0",
+  "description": "A project to integrate Arduino with Node-RED for controlling an LED matrix.",
+  "main": "src/api/led-matrix.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "@types/node": "^16.0.0",
+    "@types/express": "^4.17.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/arduino-node-red-remote.git"
+  },
+  "keywords": [
+    "arduino",
+    "node-red",
+    "led-matrix",
+    "api"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

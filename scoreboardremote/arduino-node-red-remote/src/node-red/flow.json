@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    {
+      "id": "arduino-input",
+      "type": "http in",
+      "z": "flow-id",
+      "name": "Arduino Input",
+      "url": "/arduino/input",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 100,
+      "y": 100,
+      "wires": [["process-input"]]
+    },
+    {
+      "id": "process-input",
+      "type": "function",
+      "z": "flow-id",
+      "name": "Process Input",
+      "func": "msg.payload = { value: msg.payload.value }; // Process the input from Arduino\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "x": 300,
+      "y": 100,
+      "wires": [["led-matrix-output"]]
+    },
+    {
+      "id": "led-matrix-output",
+      "type": "http request",
+      "z": "flow-id",
+      "name": "Send to LED Matrix",
+      "method": "POST",
+      "ret": "obj",
+      "url": "http://led-matrix-api/send",
+      "tls": "",
+      "x": 500,
+      "y": 100,
+      "wires": [["response"]]
+    },
+    {
+      "id": "response",
+      "type": "http response",
+      "z": "flow-id",
+      "name": "",
+      "statusCode": "",
+      "headers": {},
+      "x": 700,
+      "y": 100,
+      "wires": []
+    }
+  ]
+}
